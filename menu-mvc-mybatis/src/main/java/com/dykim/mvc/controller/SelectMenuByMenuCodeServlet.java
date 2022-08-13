@@ -27,7 +27,7 @@ public class SelectMenuByMenuCodeServlet extends HttpServlet {
 		}
 		else 
 		{
-			path = "/WEB-INF/common/errorPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "메뉴 번호로 메뉴 조회 실패");
 		}
 		

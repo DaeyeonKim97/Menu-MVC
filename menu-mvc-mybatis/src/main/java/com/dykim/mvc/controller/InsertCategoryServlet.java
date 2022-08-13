@@ -28,7 +28,7 @@ public class InsertCategoryServlet extends HttpServlet {
 			path = "/WEB-INF/views/common/successPage.jsp";
 			request.setAttribute("successCode", "InsertCategory");
 		} else {
-			path = "/WEB-INF/views/common/successPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "카테고리 추가 실패");
 		}
 		

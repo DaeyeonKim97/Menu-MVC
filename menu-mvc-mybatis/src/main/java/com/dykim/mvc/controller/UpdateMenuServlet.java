@@ -28,7 +28,7 @@ public class UpdateMenuServlet extends HttpServlet {
 			path = "/WEB-INF/views/common/successPage.jsp";
 			request.setAttribute("successCode", "updateMenu");
 		} else {
-			path = "/WEB-INF/views/common/successPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "메뉴 수정 실패");
 		}
 		

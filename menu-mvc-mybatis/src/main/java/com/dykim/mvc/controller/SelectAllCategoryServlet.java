@@ -29,7 +29,7 @@ public class SelectAllCategoryServlet extends HttpServlet {
 		}
 		else 
 		{
-			path = "/WEB-INF/common/errorPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "카테고리 목록 조회 실패");
 		}
 		

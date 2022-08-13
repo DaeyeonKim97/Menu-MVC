@@ -30,14 +30,14 @@
 	<h3>메뉴 코드로 메뉴 조회</h3>
 	<form action="menuCode">
 		<label>메뉴 코드 :</label>
-		<input type="number" name="menuCode" id="menuCode" min=0 required/>
+		<input type="number" name="menuCode" id="menuCode" min=1 required/>
 		<button type="submit">조회</button>
 	</form>
 	
 	<h3>카테고리의 메뉴 조회</h3>
 	<form action="categoryCode">
 		<label>카테고리 코드 : </label>
-		<input type="number" name="categoryCode" id="categoryCode" min=0 required/>
+		<input type="number" name="categoryCode" id="categoryCode" min=1 required/>
 		<button type="submit">조회</button>
 	</form>
 	
@@ -52,11 +52,11 @@
 		<br>
 		<label>메뉴 가격 :</label>
 		<br>
-		<input type="number" name="price" required/>
+		<input type="number" name="price" min=0 required/>
 		<br>
 		<label>카테고리 코드 :</label>
 		<br>
-		<input type="text" name="categoryCode" required/>
+		<input type="text" name="categoryCode" min=0 required/>
 		<br>
 		<label>주문 가능 여부 :</label>
 		<br>

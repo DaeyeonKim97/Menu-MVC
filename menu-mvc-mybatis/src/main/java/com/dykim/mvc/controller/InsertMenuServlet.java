@@ -30,7 +30,7 @@ public class InsertMenuServlet extends HttpServlet {
 			path = "/WEB-INF/views/common/successPage.jsp";
 			request.setAttribute("successCode", "InsertMenu");
 		} else {
-			path = "/WEB-INF/views/common/successPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "메뉴 추가 실패");
 		}
 		

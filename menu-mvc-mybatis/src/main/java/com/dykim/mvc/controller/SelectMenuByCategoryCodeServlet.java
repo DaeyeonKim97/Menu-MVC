@@ -28,7 +28,7 @@ public class SelectMenuByCategoryCodeServlet extends HttpServlet {
 		}
 		else 
 		{
-			path = "/WEB-INF/common/errorPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "카테고리 메뉴 조회 실패");
 		}
 		

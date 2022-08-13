@@ -26,7 +26,7 @@ public class SelectAllMenuWithCategoryServlet extends HttpServlet {
 			path = "/WEB-INF/views/menu/menuDetailList.jsp";
 			request.setAttribute("menuDetailList", menuDetailList);
 		} else {
-			path = "/WEB-INF/common/errorPage.jsp";
+			path = "/WEB-INF/views/common/errorPage.jsp";
 			request.setAttribute("message", "메뉴&카테고리 목록 조회 실패");
 		}
 		
