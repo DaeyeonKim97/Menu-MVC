@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MenuList</title>
+<title>Menu List</title>
 </head>
 <body>
 	<h1>메뉴 목록 조회</h1>

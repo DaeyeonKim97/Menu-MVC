@@ -12,5 +12,13 @@
 	<button onclick="location.href = '${pageContext.servletContext.contextPath}/list'">
 		메뉴 리스트 조회하기
 	</button>
+	<h3>메뉴 상세 리스트 조회</h3>
+	<button onclick="location.href = '${pageContext.servletContext.contextPath}/detail-list'">
+		메뉴 상세 리스트 조회하기
+	</button>
+	<h3>메뉴 상세 리스트 조회</h3>
+	<button onclick="location.href = '${pageContext.servletContext.contextPath}/category-list'">
+		카테고리 리스트 조회하기
+	</button>
 </body>
 </html>
