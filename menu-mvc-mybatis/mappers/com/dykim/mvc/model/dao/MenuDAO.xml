@@ -45,6 +45,7 @@
 			<result property="orderableStatus" column="ORDERABLE_STATUS"/>
 	 	</collection>
 	 </resultMap>
+	 
 	
 	<!-- query -->
 	

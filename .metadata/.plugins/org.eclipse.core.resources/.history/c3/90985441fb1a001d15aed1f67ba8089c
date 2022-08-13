@@ -1,0 +1,143 @@
+package com.dykim.mvc.model.service;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.dykim.mvc.model.dao.MenuDAO;
+import com.dykim.mvc.model.dto.CategoryAndMenuDTO;
+import com.dykim.mvc.model.dto.CategoryDTO;
+import com.dykim.mvc.model.dto.MenuAndCategoryDTO;
+import com.dykim.mvc.model.dto.MenuDTO;
+
+import static com.dykim.mvc.common.mybatis.Template.getSqlSession;
+
+public class MenuService {
+	public void preloading() {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		mapper.preloading();
+		sqlSession.close();
+	}
+	
+	public List<MenuDTO> selectAllMenu(){
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		List<MenuDTO> menuList = mapper.selectAllMenu();
+		
+		sqlSession.close();
+		
+		return menuList;
+	}
+	
+	public List<MenuAndCategoryDTO> selectAllMenuWithCategory(){
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		List<MenuAndCategoryDTO> menuAndCategoryList = mapper.selectAllMenuWithCategory();
+		
+		sqlSession.close();
+		
+		return menuAndCategoryList;
+	}
+
+	public MenuDTO selectMenuByMenuCode(int menuCode) {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		MenuDTO menu = mapper.selectMenuByMenuCode(menuCode);
+		
+		sqlSession.close();
+		
+		return menu;
+	}
+
+	public CategoryAndMenuDTO selectMenuByCategoryCode(int categoryCode){
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		CategoryAndMenuDTO menuAndCategory = mapper.selectMenuByCategoryCode(categoryCode);
+		
+		sqlSession.close();
+		
+		return menuAndCategory;
+	}
+	
+	public boolean insertMenu(MenuDTO menu) {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		int result = mapper.insertMenu(menu);
+		
+		if(result>0)
+			sqlSession.commit();
+		else
+			sqlSession.rollback();
+		
+		sqlSession.close();
+		
+		return result>0;
+	}
+	
+	public boolean updateMenu(MenuDTO menu) {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		int result = mapper.updateMenu(menu);
+		
+		if(result>0)
+			sqlSession.commit();
+		else
+			sqlSession.rollback();
+		
+		sqlSession.close();
+		
+		return result>0;
+	}
+	
+	
+	public boolean deleteMenu(int menuCode) {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		int result = mapper.deleteMenu(menuCode);
+		
+		if(result>0)
+			sqlSession.commit();
+		else
+			sqlSession.rollback();
+		
+		sqlSession.close();
+		
+		return result>0;
+	}
+	
+	public List<CategoryDTO> selectAllCategory() {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		List<CategoryDTO> categoryList = mapper.selectAllCategory();
+		
+		sqlSession.close();
+		
+		return categoryList;
+	}
+	
+	public boolean insertCategory(CategoryDTO category) {
+		SqlSession sqlSession = getSqlSession();
+		MenuDAO mapper = sqlSession.getMapper(MenuDAO.class);
+		
+		int result = mapper.insertCategory(category);
+		
+		if(result>0)
+			sqlSession.commit();
+		else
+			sqlSession.rollback();
+		
+		sqlSession.close();
+		
+		return result>0;
+	}
+	
+}

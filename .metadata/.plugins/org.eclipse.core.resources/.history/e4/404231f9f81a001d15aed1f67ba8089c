@@ -1,0 +1,9 @@
+DRIVER = oracle.jdbc.driver.OracleDriver
+URL = jdbc:oracle:thin:@mtvsdb_medium?TNS_ADMIN=/Users/dykim/keys/Wallet_MTVSdb
+USER = DYKIM
+PASSWORD = Rlaeodus1130
+
+#DRIVER=oracle.jdbc.driver.OracleDriver
+#URL=jdbc:log4jdbc:oracle:thin:@localhost:1521:xe
+#USER=C##GREEDY
+#PASSWORD=GREEDY
