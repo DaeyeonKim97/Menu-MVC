@@ -158,7 +158,7 @@
 		ORDER BY A.CATEGORY_CODE
 	</select>
 	
-	<insert id="insertCategory">
+	<insert id="insertCategory" parameterType = "com.dykim.mvc.model.dto.CategoryDTO">
 		INSERT
 			INTO TBL_CATEGORY A
 		(
@@ -169,8 +169,13 @@
 		VALUES
 		(
 		  SEQ_CATEGORY_CODE.NEXTVAL
-		, #{ name }
-		, #{ refCategorycode }
+		, #{name}
+		<if test="refCategorycode != null">
+		, #{refCategorycode}
+		</if>
+		<if test="refCategorycode ==null">
+		, NULL
+		</if>
 		)
 	</insert>
 	

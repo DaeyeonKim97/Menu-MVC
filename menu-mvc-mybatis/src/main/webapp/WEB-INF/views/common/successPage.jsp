@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Success!</title>
 </head>
 <body>
-	
+	<script type="text/javascript">
+		const successCode = '${requestScope.successCode}';
+		alert("success: "+successCode);
+		location.href = '${pageContext.servletContext.contextPath}';
+	</script>
 </body>
 </html>
