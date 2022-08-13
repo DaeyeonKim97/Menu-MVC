@@ -8,7 +8,8 @@
 <title>Category List</title>
 </head>
 <body>
-	<h1>메뉴 목록 조회</h1>
+	<h1>카테고리 목록 조회</h1>
+	<hr>
 	<table align="center" border="1">
 		<tr>
 			<th>카테고리 코드</th>

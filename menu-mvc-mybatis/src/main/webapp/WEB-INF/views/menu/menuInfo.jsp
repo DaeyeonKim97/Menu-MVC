@@ -8,6 +8,7 @@
 </head>
 <body>
 	<h1>메뉴 코드로 메뉴 조회</h1>
+	<hr>
 	<h3>메뉴 코드</h3>
 	${ requestScope.menu.code }
 	<h3>메뉴 명</h3>

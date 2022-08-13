@@ -101,7 +101,8 @@
 		FROM TBL_CATEGORY A
 		LEFT JOIN TBL_MENU B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
 		WHERE A.CATEGORY_CODE = #{categoryCode}
-		ORDER BY A.CATEGORY_CODE
+		  AND B.MENU_CODE != 0
+		ORDER BY B.MENU_CODE
 	</select>
 	
 	<insert id = "insertMenu" parameterType = "com.dykim.mvc.model.dto.MenuDTO">

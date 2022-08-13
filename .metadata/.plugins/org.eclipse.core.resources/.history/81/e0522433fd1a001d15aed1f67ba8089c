@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>메뉴 코드로 메뉴 조회</h1>
+	<h3>메뉴 코드</h3>
+	${ requestScope.menu.code }
+	<h3>메뉴 명</h3>
+	${ requestScope.menu.name }
+	<h3>메뉴 가격</h3>
+	${ requestScope.menu.price }
+	<h3>카테고리 코드</h3>
+	${ requestScope.menu.categoryCode }
+	<h3>주문 가능 여부</h3>
+	${ requestScope.menu.orderableStatus }
+</body>
+</html>

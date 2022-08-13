@@ -9,6 +9,7 @@
 </head>
 <body>
 	<h1>메뉴 목록 조회</h1>
+	<hr>
 	<table align="center" border="1">
 		<tr>
 			<th>메뉴 코드</th>

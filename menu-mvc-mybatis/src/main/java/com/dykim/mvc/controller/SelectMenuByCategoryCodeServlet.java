@@ -23,16 +23,17 @@ public class SelectMenuByCategoryCodeServlet extends HttpServlet {
 		
 		String path ="";
 		if(categoryWithMenu!=null) {
-			path = "/WEB-INF/views/menu/categoryMenuList.jsp";
-			request.setAttribute("categoryWithMenu", categoryWithMenu);
+				path = "/WEB-INF/views/menu/categoryMenuList.jsp";
+				request.setAttribute("categoryWithMenu", categoryWithMenu);
+			
 		}
 		else 
 		{
 			path = "/WEB-INF/views/common/errorPage.jsp";
-			request.setAttribute("message", "해당 카테고리가 존재하지 않습니다.");
+			request.setAttribute("message", "해당 카테고리가 존재하지 않거나 해당 카테고리에 메뉴가 존재하지 않습니다.");
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);;
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }

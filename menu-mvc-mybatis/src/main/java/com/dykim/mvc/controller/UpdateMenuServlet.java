@@ -36,7 +36,7 @@ public class UpdateMenuServlet extends HttpServlet {
 			request.setAttribute("successCode", "updateMenu");
 		} else {
 			path = "/WEB-INF/views/common/errorPage.jsp";
-			request.setAttribute("message", "메뉴 수정 실패");
+			request.setAttribute("message", "해당 메뉴코드의 메뉴가 존재하지 않아 수정에 실패했습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
