@@ -21,16 +21,9 @@ public class UpdateMenuServlet extends HttpServlet {
 		int categoryCode = Integer.parseInt(request.getParameter("categoryCode")) ;
 		String orderableStatus = request.getParameter("orderableStatus");
 		
-		boolean result = true;
-		String path = "";
+		boolean result = menuService.updateMenu(new MenuDTO(code,name,price,categoryCode,orderableStatus));
 		
-		try {
-			result = menuService.updateMenu(new MenuDTO(code,name,price,categoryCode,orderableStatus));
-		} catch (Exception e) {
-			path = "/WEB-INF/views/common/errorPage.jsp";
-			request.setAttribute("message", "카테고리 코드가 존재하지 않아 메뉴 수정에 실패했습니다.");
-			request.getRequestDispatcher(path).forward(request, response);
-		}
+		String path = "";
 		if(result) {
 			path = "/WEB-INF/views/common/successPage.jsp";
 			request.setAttribute("successCode", "updateMenu");
