@@ -21,9 +21,19 @@ public class InsertCategoryServlet extends HttpServlet {
 		if(request.getParameter("refCategoryCode") != "")
 			refCategoryCode = Integer.parseInt(request.getParameter("refCategoryCode"));
 		
-		boolean result = menuService.insertCategory(new CategoryDTO(0,name,refCategoryCode));
 		
 		String path = "";
+		
+		boolean result = true;
+		
+		try {
+			result = menuService.insertCategory(new CategoryDTO(0,name,refCategoryCode));
+		} catch ( Exception e ) {
+			path = "/WEB-INF/views/common/errorPage.jsp";
+			request.setAttribute("message", "참조 카테고리 코드가 존재하지 않습니다.");
+			request.getRequestDispatcher(path).forward(request, response);
+		}
+		
 		if(result) {
 			path = "/WEB-INF/views/common/successPage.jsp";
 			request.setAttribute("successCode", "InsertCategory");
