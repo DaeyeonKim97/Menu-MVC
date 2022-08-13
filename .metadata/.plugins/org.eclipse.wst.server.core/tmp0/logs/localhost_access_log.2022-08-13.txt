@@ -182,3 +182,16 @@
 0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:41:01 +0900] "GET /menu/menuCode?menuCode=99 HTTP/1.1" 404 828
 0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:41:04 +0900] "GET /menu/ HTTP/1.1" 200 3088
 0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:41:07 +0900] "GET /menu/menuCode?menuCode=99 HTTP/1.1" 200 169
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:42:32 +0900] "GET /menu/ HTTP/1.1" 200 3088
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:42:38 +0900] "GET /menu/menuCode?menuCode=999 HTTP/1.1" 200 169
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:42:43 +0900] "GET /menu/menuCode?menuCode=1 HTTP/1.1" 200 323
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:43:02 +0900] "GET /menu/categoryCode?categoryCode=99 HTTP/1.1" 200 165
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:43:43 +0900] "GET /menu/menuCode?menuCode=99 HTTP/1.1" 200 182
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:43:54 +0900] "GET /menu/category-list HTTP/1.1" 200 1368
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:43:58 +0900] "GET /menu/categoryCode?categoryCode=43 HTTP/1.1" 200 575
+127.0.0.1 - - [13/Aug/2022:19:49:52 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:49:53 +0900] "GET /menu/ HTTP/1.1" 200 3088
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:49:58 +0900] "GET /menu/categoryCode?categoryCode=2 HTTP/1.1" 200 550
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:52:30 +0900] "GET /menu/ HTTP/1.1" 200 3088
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:52:32 +0900] "GET /menu/categoryCode?categoryCode=2 HTTP/1.1" 200 620
+0:0:0:0:0:0:0:1 - - [13/Aug/2022:19:52:57 +0900] "GET /menu/menuCode?menuCode=2919 HTTP/1.1" 200 182

@@ -13,8 +13,13 @@
 	${ requestScope.categoryWithMenu.code }
 	<h3>카테고리 이름</h3>
 	${ requestScope.categoryWithMenu.name }
+	<c:if test="${ categoryWithMenu.refCategorycode != null }">
 	<h3>참조 카테고리 코드</h3>
 	${ requestScope.categoryWithMenu.refCategorycode }
+	</c:if>
+	<c:if test="${ categoryWithMenu.refCategorycode == null }">
+		<p style="color:gray;">참조 카테고리는 없습니다.</p>
+	</c:if>
 	<h3>해당 카테고리의 메뉴 리스트</h3>
 	<table border="1">
 		<tr>

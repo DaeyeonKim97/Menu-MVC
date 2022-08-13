@@ -29,7 +29,7 @@ public class SelectMenuByCategoryCodeServlet extends HttpServlet {
 		else 
 		{
 			path = "/WEB-INF/views/common/errorPage.jsp";
-			request.setAttribute("message", "카테고리 메뉴 조회 실패");
+			request.setAttribute("message", "해당 카테고리가 존재하지 않습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);;
