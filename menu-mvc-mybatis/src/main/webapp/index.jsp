@@ -112,16 +112,17 @@
 		</select>
 		<br>
 		
-		<input type="submit" value="추가"/>
+		<input type="submit" value="수정"/>
 		<br>
 	</form>
-	<h1>수정</h1>
+	
+	<h1>삭제</h1>
 	<hr>
 	
 	<h3>메뉴 삭제</h3>
 	<form action="deleteMenu">
 		<label>메뉴 코드 :</label>
-		<input type="number" name="menuCode" id="menuCode"/>
+		<input type="number" name="code" id="code"/>
 		<button type="submit">삭제</button>
 	</form>
 </body>
