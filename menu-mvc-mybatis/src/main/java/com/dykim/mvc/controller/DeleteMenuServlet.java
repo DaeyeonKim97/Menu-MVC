@@ -28,7 +28,7 @@ public class DeleteMenuServlet extends HttpServlet {
 			request.setAttribute("successCode", "deleteMenu");
 		} else {
 			path = "/WEB-INF/views/common/errorPage.jsp";
-			request.setAttribute("message", "메뉴 삭제 실패");
+			request.setAttribute("message", "해당 메뉴 코드가 존재하지 않아 삭제에 실패했습니다.");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

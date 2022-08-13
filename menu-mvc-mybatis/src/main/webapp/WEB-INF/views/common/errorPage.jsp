@@ -7,6 +7,10 @@
 <title>Error!</title>
 </head>
 <body>
-	<h1 align="center">${ requestScope.message }</h1>
+	<script type="text/javascript">
+		const errorCode = '${requestScope.message}';
+		alert("error: "+errorCode);
+		location.href = '${pageContext.servletContext.contextPath}';
+	</script>
 </body>
 </html>

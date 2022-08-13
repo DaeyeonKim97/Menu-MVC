@@ -26,7 +26,6 @@ INDEX VERSION 1.131+/Users/dykim/MTVS_academy/Menu-MVC-workspace/.metadata/.plug
 2371869264.index
 2049062141.index
 2913917606.index
-3910802057.index
 2957052546.index
 646106375.index
 2524310967.index
