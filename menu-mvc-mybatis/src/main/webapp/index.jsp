@@ -30,14 +30,14 @@
 	<h3>메뉴 코드로 메뉴 조회</h3>
 	<form action="menuCode">
 		<label>메뉴 코드 :</label>
-		<input type="number" name="menuCode" id="menuCode"/>
+		<input type="number" name="menuCode" id="menuCode" min=0 required/>
 		<button type="submit">조회</button>
 	</form>
 	
 	<h3>카테고리의 메뉴 조회</h3>
 	<form action="categoryCode">
 		<label>카테고리 코드 : </label>
-		<input type="number" name="categoryCode" id="categoryCode"/>
+		<input type="number" name="categoryCode" id="categoryCode" min=0 required/>
 		<button type="submit">조회</button>
 	</form>
 	
@@ -48,15 +48,15 @@
 	<form action="insertMenu" method="post">
 		<label>메뉴 명 :</label>
 		<br>
-		<input type="text" name="name"/>
+		<input type="text" name="name" required/>
 		<br>
 		<label>메뉴 가격 :</label>
 		<br>
-		<input type="number" name="price"/>
+		<input type="number" name="price" required/>
 		<br>
 		<label>카테고리 코드 :</label>
 		<br>
-		<input type="text" name="categoryCode"/>
+		<input type="text" name="categoryCode" required/>
 		<br>
 		<label>주문 가능 여부 :</label>
 		<br>
@@ -74,11 +74,11 @@
 	<form action="insertCategory" method="post">
 		<label>카테고리 명 :</label>
 		<br>
-		<input type="text" name="name"/>
+		<input type="text" name="name" required/>
 		<br>
 		<label>참조 카테고리 코드 :</label>
 		<br>
-		<input type="number" name="refCategoryCode"/>
+		<input type="number" name="refCategoryCode" placeholder="비어있을 경우 NULL"/>
 		<br>
 		<input type="submit" value="추가"/>
 	</form>
@@ -90,7 +90,7 @@
 	<form action="updateMenu" method="post">
 		<label><b>수정할 메뉴 코드 :</b></label>
 		<br>
-		<input type="text" name="code"/>
+		<input type="text" name="code" required/>
 		<br>
 		<label>메뉴 명 :</label>
 		<br>
@@ -122,7 +122,7 @@
 	<h3>메뉴 삭제</h3>
 	<form action="deleteMenu">
 		<label>메뉴 코드 :</label>
-		<input type="number" name="code" id="code"/>
+		<input type="number" name="code" id="code" required/>
 		<button type="submit">삭제</button>
 	</form>
 </body>
