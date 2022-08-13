@@ -1,0 +1,34 @@
+package com.dykim.mvc.model.dao;
+
+import java.util.List;
+
+import com.dykim.mvc.model.dto.CategoryAndMenuDTO;
+import com.dykim.mvc.model.dto.MenuAndCategoryDTO;
+import com.dykim.mvc.model.dto.MenuDTO;
+
+public interface MenuDAO {
+
+	List<MenuDTO> selectAllMenu();
+
+	MenuDTO selectMenuByMenuCode(int menuCode);
+
+	int insertMenu(MenuDTO menu);
+	
+	int updateMenu(MenuDTO menu);
+
+	int deleteMenu();
+	
+	
+	
+	
+	
+
+	List<MenuDTO> selectSqlTest();
+
+	int insertMenuTest(MenuDTO menu);
+
+	int insertNewCategory(MenuAndCategoryDTO menuAndCategory);
+
+	int insertNewMenu(MenuAndCategoryDTO menuAndCategory);
+
+}

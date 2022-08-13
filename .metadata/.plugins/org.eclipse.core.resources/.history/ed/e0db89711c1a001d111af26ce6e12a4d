@@ -1,0 +1,7 @@
+package com.dykim.mvc.model.service;
+
+public class MenuService {
+	private final MenuDAO = menuDAO;
+	
+	public 
+}

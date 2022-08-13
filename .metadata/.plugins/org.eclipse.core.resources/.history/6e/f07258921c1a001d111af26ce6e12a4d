@@ -1,0 +1,52 @@
+package com.dykim.mvc.model.service;
+
+import java.util.List;
+
+import org.apache.ibatis.session.SqlSession;
+
+import com.dykim.mvc.model.dto.CategoryDTO;
+import com.dykim.mvc.model.dto.MenuAndCategoryDTO;
+import com.dykim.mvc.model.dto.MenuDTO;
+
+import static com.dykim.mvc.common.mybatis.Template.getSqlSession;
+
+public class MenuService {
+	
+	List<MenuDTO> selectAllMenu(){
+		SqlSession sqlSession = getSqlSession();
+	}
+	
+	List<MenuAndCategoryDTO> selectAllMenuWithCategory(){
+		
+	}
+
+	MenuDTO selectMenuByMenuCode(int menuCode) {
+		
+	}
+
+	List<MenuDTO> selectMenuByCategoryCode(int categoryCode){
+		
+	}
+	
+	int insertMenu(MenuDTO menu) {
+		
+	}
+	
+	int updateMenu(MenuDTO menu) {
+		
+	}
+	
+	
+	int deleteMenu(int menuCode) {
+		
+	}
+	
+	List<CategoryDTO> selectAllCategory(){
+		
+	}
+	
+	int insertCategory(CategoryDTO category) {
+		
+	}
+	
+}

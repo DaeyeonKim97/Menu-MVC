@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://www.mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace = "com.dykim.mvc.model.dao.MenuDAO">
+
+	<!-- resultMaps -->
+
+	<resultMap type="com.dykim.mvc.model.dto.MenuDTO" id="menuResultMap">
+		<id property="code" column="MENU_CODE"/>
+		<result property="name" column="MENU_NAME"/>
+		<result property="price" column="MENU_PRICE"/>
+		<result property="categoryCode" column="CATEGORY_CODE"/>
+	</resultMap>
+	
+	<resultMap type="com.dykim.mvc.model.dto.CategoryDTO" id="categoryResultMap">
+		<id property="code" column="CATEGORY_CODE"/>
+	 	<result property="name" column="CATEGORY_NAME"/>
+	 	<result property="refCategorycode" column="REF_CATEGORY_CODE"/>
+	</resultMap>
+	
+	<resultMap type="com.dykim.mvc.model.dto.MenuAndCategoryDTO" id="menuAndCategoryMap">
+		<id property="code" column="MENU_CODE"/>
+		<result property="name" column="MENU_NAME"/>
+		<result property="price" column="MENU_PRICE"/>
+		<result property="orderableStatus" column="ORDERABLE_STATUS"/>
+		<association property="category" javaType="com.dykim.mvc.model.dto.CategoryDTO">
+			<id property="code" column="CATEGORY_CODE"/>
+		 	<result property="name" column="CATEGORY_NAME"/>
+		 	<result property="refCategorycode" column="REF_CATEGORY_CODE"/>
+		</association>
+	</resultMap>
+	
+	<resultMap type="com.dykim.mvc.model.dto.CategoryAndMenuDTO" id="categoryAndMenuResultMap">
+	 	<id property="code" column="CATEGORY_CODE"/>
+	 	<result property="name" column="CATEGORY_NAME"/>
+	 	<result property="refCategorycode" column="REF_CATEGORY_CODE"/>
+	 	<collection property="menuList" ofType="com.dykim.mvc.model.dto.MenuDTO">
+	 		<id property="code" column="MENU_CODE"/>
+			<result property="name" column="MENU_NAME"/>
+			<result property="price" column="MENU_PRICE"/>
+			<result property="categoryCode" column="CATEGORY_CODE"/>
+			<result property="orderableStatus" column="ORDERABLE_STATUS"/>
+	 	</collection>
+	 </resultMap>
+	
+	<!-- query -->
+	
+	<select id="selectAllMenu" resultMap="menuResultMap">
+		SELECT
+			  A.MENU_CODE
+			, A.MENU_NAME
+			, A.MENU_PRICE
+			, A.CATEGORY_CODE
+			, A.ORDERABLE_STATUS
+		FROM TBL_MENU A
+		WHERE A.ORDERABLE_STATUS = 'Y'
+		ORDER BY A.MENU_CODE
+	</select>
+	
+	<select id="selectAllMenuWithCategory" resultMap="menuAndCategoryMap">
+		SELECT
+	 		  A.MENU_CODE
+	 		, A.MENU_NAME
+	 		, A.MENU_PRICE
+	 		, B.CATEGORY_CODE
+	 		, B.CATEGORY_NAME
+	 		, B.REF_CATEGORY_CODE
+	 		, A.ORDERABLE_STATUS
+	 	FROM TBL_MENU A
+	 	JOIN TBL_CATEGORY B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+	 	WHERE A.ORDERABLE_STATUS = 'Y'
+	 	ORDER BY A.MENU_CODE
+	</select>
+	
+	<select id="selectMenuByMenuCode" resultMap="categoryAndMenuResultMap">
+		SELECT
+			  A.CATEGORY_CODE
+			, A.CATEGORY_NAME
+			, A.REF_CATEGORY_CODE
+			, B.MENU_CODE
+			, B.MENU_NAME
+			, B.MENU_PRICE
+			, B.CATEGORY_CODE
+			, B.ORDERABLE_STATUS
+		FROM TBL_CATEGORY A
+		LEFT JOIN TBL_MENU B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+		ORDER BY A.CATEGORY_CODE
+	</select>
+	
+	<select id="selectMenuByCategoryCode" resultMap="categoryAndMenuResultMap">
+		SELECT
+			  A.CATEGORY_CODE
+			, A.CATEGORY_NAME
+			, A.REF_CATEGORY_CODE
+			, B.MENU_CODE
+			, B.MENU_NAME
+			, B.MENU_PRICE
+			, B.CATEGORY_CODE
+			, B.ORDERABLE_STATUS
+		FROM TBL_CATEGORY A
+		LEFT JOIN TBL_MENU B ON(A.CATEGORY_CODE = B.CATEGORY_CODE)
+		ORDER BY A.CATEGORY_CODE
+	</select>
+	
+	<insert id = "insertMenu" parameterType = "com.dykim.mvc.model.dto.MenuDTO">
+		INSERT
+			INTO TBL_MENU A
+		(
+		  A.MENU_CODE
+		, A.MENU_NAME
+		, A.MENU_PRICE
+		, A.CATEGORY_CODE
+		, A.ORDERABLE_STATUS
+		)
+		VALUES
+		(
+		  SEQ_MENU_CODE.NEXTVAL
+		, #{name}
+		, #{price}
+		, #{categoryCode}
+		, #{orderableStatus}
+		)
+	</insert>
+	
+	<update id="updateMenu" parameterType = "com.dykim.mvc.model.dto.MenuDTO">
+		UPDATE
+			TBL_MENU A
+		<set>
+			<if test="name != null and name !=''">			
+				A.MENU_NAME = #{name},
+			</if>
+			<if test="price != null">
+				A.MENU_PRICE = #{price},
+			</if>
+			<if test="categoryCode != null">
+				A.CATEGORY_CODE = #{categoryCode}
+			</if>
+			<if test="name != null and name !=''">
+				A.ORDERABLE_STATUS = #{orderableStatus}
+			</if>
+		</set>
+		WHERE A.MENU_CODE = #{code}
+	</update>
+	
+	<delete id="deleteMenu">
+		DELETE
+			FROM TBL_MENU A
+		WHERE A.MENU_CODE = #{menuCode}
+	</delete>
+	
+	<select id="selectAllCategory" resultMap="categoryResultMap">
+		SELECT
+			  A.CATEGORY_CODE
+			, A.CATEGORY_NAME
+			, A.REF_CATEGORY_CODE
+		FROM TBL_CATEGORY A
+	</select>
+	
+	<insert id="insertCategory">
+		INSERT
+			INTO TBL_CATEGORY A
+		(
+		  A.CATEGORY_CODE
+		, A.CATEGORY_NAME
+		, A.REF_CATEGORY_CODE
+		)
+		VALUES
+		(
+		  SEQ_CATEGORY_CODE.NEXTVAL
+		, #{ category.name }
+		, null
+		)
+	</insert>
+	
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://www.mybatis.org/dtd/mybatis-3-config.dtd">
+
+ <configuration>
+ 	
+ 	<properties resource = "connection-info.properties"/>
+ 
+ 	<environments default="dev">
+ 		<environment id = "dev">
+	 		<!-- JDBC 혹은 MANAGED중 한가지 선택 -->
+	 		<transactionManager type = "JDBC"/>
+	 		<!-- POOOLED or UNPOOLED-->
+	 		<dataSource type = "POOLED">
+	 			<property name="driver" value="${DRIVER}"/>
+	 			<property name="url" value="${URL}"/>
+	 			<property name="username" value="${USER}"/>
+	 			<property name="password" value="${PASSWORD}"/>
+	 		</dataSource>
+ 		</environment>
+ 	</environments>
+ 	
+ 	<mappers>
+ 		<package name ="com.dykim.mvc.model.dao"/>
+ 	</mappers>
+ 	
+ </configuration>

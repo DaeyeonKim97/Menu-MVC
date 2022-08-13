@@ -1,0 +1,5 @@
+package com.dykim.mvc.common.mybatis;
+
+public class Template {
+
+}

@@ -1,0 +1,16 @@
+package com.dykim.mvc.common;
+
+import org.apache.ibatis.session.SqlSession;
+import static com.dykim.mvc.common.mybatis.Template.getSqlSession;
+
+public class test {
+
+	public static void main(String[] args) {
+		System.out.println("getSqlsession test");
+		SqlSession sqlSession = getSqlSession();
+		sqlSession.close();
+		
+		
+	}
+
+}
